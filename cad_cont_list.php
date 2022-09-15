@@ -8,6 +8,8 @@
     <style>
         .card{
             text-align: center;
+            align-items: center;
+            justify-content: center;
         }
 
         .img{
