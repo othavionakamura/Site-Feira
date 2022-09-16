@@ -6,11 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
         #content{
             display: flex;
-            width: 80%;
-            text-align: center;
+            width: 90%;
             flex-wrap: wrap;
+            position: relative;
+            left: 8%;
         }
         .card{
             text-align: center;
@@ -36,9 +41,13 @@
             height: 300px;
             width: 350px;
             position: relative;
-            top: -20%;
+            top: -18%;
             z-index: 0;
             border-radius: 30px;
+        }
+
+        .conteudo h2{
+            padding-top: 25%;
         }
     </style>
 </head>
