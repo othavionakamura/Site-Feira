@@ -53,64 +53,27 @@
 </head>
 <body>
 
-
-    <div id="content">
-        <div class="card">
-            <img src='images/2022.09.09-13.57.48.png' class='img'>
-            <div class="conteudo">
-                <h2>João</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                Phasellus aliquet lectus ac tristique posuere. Praesent a 
-                tellus elementum, interdum libero in, tristique lectus. 
-                Maecenas efficitur, urna sit amet laoreet interdum.</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src='images/2022.09.09-13.57.48.png' class='img'>
-            <div class="conteudo">
-                <h2>João</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                Phasellus aliquet lectus ac tristique posuere. Praesent a 
-                tellus elementum, interdum libero in, tristique lectus. 
-                Maecenas efficitur, urna sit amet laoreet interdum.</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src='images/2022.09.09-13.57.48.png' class='img'>
-            <div class="conteudo">
-                <h2>João</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                Phasellus aliquet lectus ac tristique posuere. Praesent a 
-                tellus elementum, interdum libero in, tristique lectus. 
-                Maecenas efficitur, urna sit amet laoreet interdum.</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src='images/2022.09.09-13.57.48.png' class='img'>
-            <div class="conteudo">
-                <h2>João</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                Phasellus aliquet lectus ac tristique posuere. Praesent a 
-                tellus elementum, interdum libero in, tristique lectus. 
-                Maecenas efficitur, urna sit amet laoreet interdum.</p>
-            </div>
-        </div>
-
-        
-    </div>
-
     <?php
         require ('conexão.php');
+
+    
         try {
             $stmt = $pdo -> query('SELECT * FROM site . cadastro;');
+
+            echo "<div id='content'>";
             
             while($linha = $stmt->fetch(PDO::FETCH_ASSOC)){
-                echo "<img src='images/{$linha['foto_perfil']}' class='img'>{$linha['nome']}<br>";
+                echo "<div class='card'>
+                        <img src='images/{$linha['foto_perfil']}' class='img'>
+                      <div class='conteudo'>
+                        <h2>{$linha['nome']}<br></h2>
+                      </div>
+                      </div>";
             }
+            
+            echo "</div>";
         }
+            
 
         catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
