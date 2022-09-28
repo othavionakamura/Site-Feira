@@ -11,32 +11,31 @@
 <body>
     <form method="post">
         ID para deletar:
-        <input type="text" name="a" placeholder="CPF"><br>
+        <input type="text" name="cpf" placeholder="CPF"><br>
     </form>
 
     <?php
 
-    require ('cad_cont_list.php');
+        if (isset($_POST['cpf'])) {
 
-    if (isset($_POST['a'])) {
+            $cpf = $_POST['cpf'];
 
-        $a = $_POST['a'];
+            try {
+                require ('conexão.php');
 
-        try {
-            require ('conexão.php');
+                $stmt = $pdo->prepare('DELETE FROM cadastro where cpf=:cpf;');
 
-            $stmt = $pdo->prepare('DELETE * FROM `site`.`cadastro` WHERE id = :id');
+                $stmt -> bindParam(':cpf' , $cpf);
+                $stmt -> execute();
 
-            $stmt -> bindParam(':id' , $id);
-            $stmt -> execute();
+                echo $stmt->rowCount();
 
-            echo $stmt->rowCount();
-
-        } catch (PDOException $e) {
-            echo "Error: " . $e->getMessage();
-            echo "<br><b>Não Macaco</b>";
+            } catch (PDOException $e) {
+                echo "Error: " . $e->getMessage();
+                echo "<br><b>Não Macaco</b>";
+            }
         }
-    }
+        require ('cad_cont_list.php')
     ?>
 
 </body>
