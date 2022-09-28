@@ -68,7 +68,9 @@
                 echo "<div class='card'>
                         <img src='images/{$linha['foto_perfil']}' class='img'>
                       <div class='conteudo'>
-                        <h2>{$linha['nome']}<br></h2>
+                        <h2>{$linha['nome']}</h2>
+                        <p>{$linha['telefone']}</p>
+                        <p>{$linha['cpf']}</p>
                       </div>
                       </div>";
             }
